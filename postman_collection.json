@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "7a984251-94ce-4d6f-a865-bff0e948f65c",
+		"name": "JWT token",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18284161"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}{{AUTH_PATH}}/signin",
+							"host": [
+								"{{API_BASE_URL}}{{AUTH_PATH}}"
+							],
+							"path": [
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"test2\",\r\n    \"password\": \"123\",\r\n    \"email\": \"test2\",\r\n    \"role\": [\r\n        \"ROLE_ADMIN\",\r\n        \"ROLE_USER\"\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{API_BASE_URL}}{{AUTH_PATH}}/signup",
+							"host": [
+								"{{API_BASE_URL}}{{AUTH_PATH}}"
+							],
+							"path": [
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "test",
+			"item": [
+				{
+					"name": "all",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}{{TEST_PATH}}/all",
+							"host": [
+								"{{API_BASE_URL}}{{TEST_PATH}}"
+							],
+							"path": [
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}{{TEST_PATH}}/user",
+							"host": [
+								"{{API_BASE_URL}}{{TEST_PATH}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "moderator",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}{{TEST_PATH}}/mod",
+							"host": [
+								"{{API_BASE_URL}}{{TEST_PATH}}"
+							],
+							"path": [
+								"mod"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_BASE_URL}}{{TEST_PATH}}/admin",
+							"host": [
+								"{{API_BASE_URL}}{{TEST_PATH}}"
+							],
+							"path": [
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_BASE_URL",
+			"value": "http://localhost:443",
+			"type": "string"
+		},
+		{
+			"key": "AUTH_PATH",
+			"value": "/api/auth",
+			"type": "string"
+		},
+		{
+			"key": "TEST_PATH",
+			"value": "/api/test",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiaWF0IjoxNjc3OTY0MDA5LCJleHAiOjE2NzgwNTA0MDl9.B2rVixWFoHiqamAdDAgM_CQRHLgr765G_70IKPTKcLlbiu-egJG-dyO_9p2InSQL-bmeq9oOiAewRsh0UYeYSQ",
+			"type": "string"
+		}
+	]
+}
